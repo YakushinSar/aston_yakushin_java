@@ -1,12 +1,38 @@
+package Task3;
+
+import java.util.Scanner;
+
 public class Task3 {
     public static void main(String[] args) {
-        int[] array = {1, 3, 5, 6, 9, 10, 12, 15};
-
-        System.out.println("Элементы массива, кратные 3:");
+        System.out.print("Введите количество элементов массива:  ");
+        Scanner scanner = new Scanner(System.in);
+        int lenMassive = scanner.nextInt();
+        int[] array = new int[lenMassive];
+        int cnt = 0;
+        for (int i = 0; i < lenMassive; i++) {
+            System.out.print("Введите число: ");
+            array[i] = scanner.nextInt();
+            if (array[i] % 3 == 0) {
+                cnt++;
+                //можно прямо здесь сделать вывод System.out.print(result[i] + " ");
+                //но я сделал еще один массив для более удобочитаемого вывода
+            }
+        }
+        int[] result = new int[cnt];
+        int res = 0;
         for (int i = 0; i < array.length; i++) {
             if (array[i] % 3 == 0) {
-                System.out.println(array[i]);
+                result[res] = array[i];
+                res++;
             }
+        }
+        if (res > 0) {
+            System.out.print("Числа кратные трем: ");
+            for (int i = 0; i < result.length; i++) {
+                System.out.print(result[i] + " ");
+            }
+        } else {
+            System.out.println("Чисел кратных трем в массиве нет");
         }
     }
 }
